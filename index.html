@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/output.css">
+
+  <script defer src="script.js"></script>
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Calculator app</title>
+  <style>
+    :root{
+      --key-color:white;
+      --key-colorShadow:hsl(28, 16%, 65%);
+      --key-DR:hsl(225, 21%, 49%);
+      --key-DR-shadow:hsl(224, 28%, 35%);
+      --key-last:hsl(6, 63%, 50%);
+      --key-last-shadow:hsl(6, 70%, 34%);
+
+      --key-color0:white;
+      --key-colorShadow0:hsl(28, 16%, 65%);
+      --key-DR0:hsl(225, 21%, 49%);
+      --key-DR-shadow0:hsl(224, 28%, 35%);
+      --key-last0:hsl(6, 63%, 50%);
+      --key-last-shadow0:hsl(6, 70%, 34%);
+
+      --key-color1:hsl(45, 7%, 89%);
+      --key-colorShadow1:hsl(35, 11%, 61%);
+      --key-DR1:hsl(185, 42%, 37%);
+      --key-DR-shadow1:hsl(185, 58%, 25%);
+      --key-last1:hsl(25, 98%, 40%);
+      --key-last-shadow1:hsl(25, 99%, 27%);
+
+      --key-color2:hsl(268, 47%, 21%);
+      --key-colorShadow2:hsl(290, 70%, 36%);
+      --key-DR2:hsl(281, 89%, 26%);
+      --key-DR-shadow2:hsl(285, 91%, 52%);
+      --key-last2:hsl(176, 100%, 44%);
+      --key-last-shadow2:hsl(177, 92%, 70%);
+
+      --bg-mainBg:hsl(222, 26%, 31%);
+      --bg-mainBg0:hsl(222, 26%, 31%);
+      --bg-mainBg1:hsl(0, 0%, 90%);
+      --bg-mainBg2:hsl(268, 75%, 9%);
+
+      --textColor:hsl(0, 0%, 100%);
+      --textColor0:hsl(0, 0%, 100%);
+      --textColor1:hsl(60, 10%, 19%);
+      --textColor2:hsl(52, 100%, 62%);
+
+      --bg-keyBgToggle:hsl(6, 63%, 50%);
+      --bg-keyBgToggle0:hsl(6, 63%, 50%);
+      --bg-keyBgToggle1:hsl(25, 98%, 40%);
+      --bg-keyBgToggle2:hsl(176, 100%, 44%);
+
+      --key-textColor:hsl(221, 14%, 31%);
+      --key-textColor0:hsl(221, 14%, 31%);
+      --key-textColor1:hsl(60, 10%, 19%);
+      --key-textColor2:hsl(52, 100%, 62%);
+
+      --lastkey-color:white;
+      --lastkey-color0:white;
+      --lastkey-color1:white;
+      --lastkey-color2:black;
+    }
+    *{
+      line-height: normal;
+      transition: all .2s;
+    }
+    .header, .header + div{
+      color: var(--textColor);
+    }
+    .themeColor{
+      background-color: var(--bg-keyBgToggle);
+    }
+    .grid-con > *{
+      border-radius: 8px;
+      text-align: center;
+      padding-block: .5rem;
+      cursor: pointer;
+    }
+    .grid-con > div:not(:nth-child(4),:nth-child(17),:nth-child(18)){
+      background-color: var(--key-color);
+      box-shadow:  3px 0 var(--key-colorShadow);
+      color: var(--key-textColor);
+    }
+    .grid-con > div:nth-child(4),:nth-child(17){
+      background-color: var(--key-DR);
+      box-shadow: 0 3px 0 var(--key-DR-shadow);
+      color: white;
+    }
+    .grid-con > div:last-child{
+      background-color: var(--key-last);
+      box-shadow: 0 3px 0 var(--key-last-shadow);
+      color: var(--lastkey-color);
+    }
+    .overflow-scroll::-webkit-scrollbar{
+      display: none;
+    }
+    body{
+      background-color: var(--bg-mainBg);
+    }
+  </style>
+</head>
+<body class="font-spartan text-pText w-full flex justify-center">
+  <main class="w-2/5 flex flex-col gap-5 my-10">
+
+    <div class="header flex justify-between items-end">
+      <h2 class=" font-bold">calc</h2>
+      <span class="flex gap-4 items-end">
+        <h3 class="scale-50">THEME</h3>
+        <div class="flex flex-col">
+          <ul class="flex gap-1 themeCon">
+            <li class="scale-50 cursor-pointer">1</li>
+            <li class="scale-50 cursor-pointer">2</li>
+            <li class="scale-50 cursor-pointer">3</li>
+          </ul>
+          <span class="w-14 h-4 rounded-lg bg-keyPadBg0">
+            <div class="themeColor w-4 h-4 rounded-lg scale-75 ">&nbsp;</div>
+          </span>
+        </div>
+      </span>
+    </div>
+
+    <div class="flex flex-col gap-0 items-end bg-screenBg0 text-pWhite p-4 rounded-md h-20 overflow-x-scroll">
+      <span class="displayKeyValue"> 399,999</span>
+      <span class="displayResult scale-75">..</span>
+    </div>
+
+    <div class="grid-con grid gap-6 grid-cols-4 p-8 bg-keyPadBg0 text-text0 rounded-md">
+      <div data-key="7">7</div>
+      <div data-key="8">8</div>
+      <div data-key="9">9</div>
+      <div data-key="delete">DEL</div>
+      <div data-key="4">4</div>
+      <div data-key="5">5</div>
+      <div data-key="6">6</div>
+      <div data-key="+">+</div>
+      <div data-key="1">1</div>
+      <div data-key="2">2</div>
+      <div data-key="3">3</div>
+      <div data-key="-">-</div>
+      <div data-key=".">.</div>
+      <div data-key="0">0</div>
+      <div data-key="/">/</div>
+      <div data-key="*">x</div>
+      <div data-key="reset" class="col-span-2">RESET</div>
+      <div data-key="=" class="equal col-span-2">=</div>
+    </div>
+  </main>
+
+</body>
+</html>
