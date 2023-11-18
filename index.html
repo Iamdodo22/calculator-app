@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="max-lg:text-[62.5%] ">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
@@ -67,6 +67,11 @@
       --lastkey-color0:white;
       --lastkey-color1:white;
       --lastkey-color2:black;
+
+      --bg-screen:hsl(224, 36%, 15%);
+      --bg-screen0:hsl(224, 36%, 15%);
+      --bg-screen1: hsl(0, 0%, 93%);
+      --bg-screen2: hsl(268, 71%, 12%);
     }
     *{
       line-height: normal;
@@ -77,6 +82,9 @@
     }
     .themeColor{
       background-color: var(--bg-keyBgToggle);
+    }
+    .screen{
+      background-color: var(--bg-screen);
     }
     .grid-con > *{
       border-radius: 8px;
@@ -127,7 +135,7 @@
       </span>
     </div>
 
-    <div class="flex flex-col gap-0 items-end bg-screenBg0 text-pWhite p-4 rounded-md h-20 overflow-x-scroll">
+    <div class="screen flex flex-col gap-0 items-end text-pWhite p-4 rounded-md overflow-x-scroll h-20">
       <span class="displayKeyValue"> 399,999</span>
       <span class="displayResult scale-75">..</span>
     </div>
@@ -136,7 +144,7 @@
       <div data-key="7">7</div>
       <div data-key="8">8</div>
       <div data-key="9">9</div>
-      <div data-key="delete">DEL</div>
+      <div data-key="delete" class="max-sm:text-lg">DEL</div>
       <div data-key="4">4</div>
       <div data-key="5">5</div>
       <div data-key="6">6</div>
@@ -149,7 +157,7 @@
       <div data-key="0">0</div>
       <div data-key="/">/</div>
       <div data-key="*">x</div>
-      <div data-key="reset" class="col-span-2">RESET</div>
+      <div data-key="reset" class="col-span-2 max-sm:text-lg">RESET</div>
       <div data-key="=" class="equal col-span-2">=</div>
     </div>
   </main>

@@ -19,7 +19,7 @@ module.exports = {
       // theme2
       mainBg1: "hsl(0, 0%, 90%)", 
       keyPadBg1: "hsl(0, 5%, 81%)", 
-      screenBg1: " hsl(0, 0%, 93%)" ,
+      screenBg1: " hsl(0, 0%, 93%)",
       keyBg1: "hsl(185, 42%, 37%)",
       keyShadow1: "hsl(185, 58%, 25%)",
       keyBgToggle1: "hsl(25, 98%, 40%)",

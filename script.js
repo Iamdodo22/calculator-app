@@ -24,6 +24,7 @@ function themeSetting(theme, transX) {
     document.documentElement.style.setProperty('--bg-keyBgToggle',`var(--bg-keyBgToggle${theme})`);
     document.documentElement.style.setProperty('--key-textColor',`var(--key-textColor${theme})`);
     document.documentElement.style.setProperty('--lastkey-color',`var(--lastkey-color${theme})`);
+    document.documentElement.style.setProperty('--bg-screen',`var(--bg-screen${theme})`);
    
     themeColor.style.translate = `${transX}rem`; 
 }
