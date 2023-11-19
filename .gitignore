@@ -17,3 +17,5 @@
 
 ## do not add line 19
 node_modules
+## avoid line 21
+package-lock.json
