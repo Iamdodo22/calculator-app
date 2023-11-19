@@ -39,14 +39,24 @@ function init() {
     themeSetting(myTheme,transX)
 }
 
+    function allValid(expression) {
+        expression = expression.replace(/0[0-9]+/g, match => parseInt(match))
+        return eval(expression);
+    }
+
 function displayKeyValue() {
-    if(this.dataset.key === 'delete')return keyDisplay.textContent = keyDisplay.textContent.slice(0,-1);
+    try{
+      if(this.dataset.key === 'delete')return keyDisplay.textContent = keyDisplay.textContent.slice(0,-1);
     
-    if(this.dataset.key === '=')return resultDisplay.textContent = eval(keyDisplay.textContent);
+    if(this.dataset.key === '=')return resultDisplay.textContent = allValid(keyDisplay.textContent);
     keyDisplay.textContent += this.dataset.key;
     if(this.dataset.key === 'reset'){
         keyDisplay.textContent ='';
         resultDisplay.textContent ='';
+    }  
+    }
+    catch(error){
+        resultDisplay.textContent = 'ERROR !'
     }
 
 }
