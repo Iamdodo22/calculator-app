@@ -1,4 +1,4 @@
-"use strict";
+import * as math from 'mathjs';
 
 // variables
 const resultDisplay = document.querySelector('.displayResult');
@@ -40,9 +40,12 @@ function init() {
 }
 
     function allValid(expression) {
-        expression = expression.replace(/0[0-9]+/g, match => parseInt(match))
-        return eval(expression);
+        // expression = expression.replace(/0[0-9]+/g, match => parseInt(match))
+        const result = math.evaluate(expression);
+        return result;
     }
+
+    console.log(allValid('03'))
 
 function displayKeyValue() {
     try{
